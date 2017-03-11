@@ -8,5 +8,18 @@
 </ion-header>
 
 <ion-content padding>
-
+  <button ion-button color="primary">Scan barcode</button>
+  <ion-card *ngIf="data">
+    <ion-card-content>
+      Barcode: {{data.text}}
+      <br>
+      Format: {{data.format}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="error">
+    <ion-card-content>
+      Error:<br>
+      {{error}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

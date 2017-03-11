@@ -1,22 +1,29 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Badge } from 'ionic-native';
 
-/*
-  Generated class for the Badge page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-badge',
   templateUrl: 'badge.html'
 })
 export class BadgePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    if(!Badge.hasPermission()) {
+      Badge.registerPermission();
+    }
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BadgePage');
+  }
+
+  setBadge(value:number) {
+    Badge.set(value);
+  }
+
+  clearBadge() {
+    Badge.clear();
   }
 
 }

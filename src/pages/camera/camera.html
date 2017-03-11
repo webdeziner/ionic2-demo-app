@@ -8,5 +8,12 @@
 </ion-header>
 
 <ion-content padding>
-
+  <button ion-button color="primary" (click)="takePicture()">Take picture</button>
+  <img *ngIf="imgData" ng-src="imgData">
+  <ion-card *ngIf="error">
+    <ion-card-content>
+      Error:<br>
+      {{error}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
